@@ -1,22 +1,14 @@
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
+  <h1>Twitter Public Feed</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+    {{title}}
+    <p><button class="btn" href="{{link}}">flickr</button></p>
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
-<div ng-repeat="n in awesomeThings">
-    {{n}}
-</div>
-<!--
-{{Object.keys(feed)}}
-{{feed}}
--->
 <ul class="feed row marketing">
-    <li class="feed-item" ng-repeat="item in feed.items">
+    <li class="feed-item" ng-repeat="(i, item) in items">
         <img class="thumb" src="{{item.media.m}}"></img>
-        <h3>{{item.title}}</h3>
+        <h3><a href="#/detail/{{i}}">{{item.title}}</a></h3>
         <h4>{{item.date_taken}}</h4>
         <!--<p ng-bind-html="item.description"/>-->
         Author: {{item.author}}
@@ -27,17 +19,3 @@
         <a href="{{item.link}}">View on Flickr</a>
     </li>
 </ul>
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>

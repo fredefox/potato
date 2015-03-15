@@ -8,10 +8,14 @@
  * Controller of the potatoApp
  */
 angular.module('potatoApp')
-  .controller('DetailCtrl', function ($scope) {
+  .controller('DetailCtrl',
+    ['$scope', '$routeParams', 'sharedProperties',
+      function ($scope, $routeParams, sp) {
+    console.info(sp.getObject());
+    $scope.item = sp.getObject()[$routeParams.id];
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+  }]);
