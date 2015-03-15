@@ -8,10 +8,11 @@
  * Controller of the potatoApp
  */
 angular.module('potatoApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('FeedCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
+      'Karma',
+      'fooo'
     ];
   });

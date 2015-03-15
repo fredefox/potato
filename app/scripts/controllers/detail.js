@@ -8,7 +8,7 @@
  * Controller of the potatoApp
  */
 angular.module('potatoApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('DetailCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
