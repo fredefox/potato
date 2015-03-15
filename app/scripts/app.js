@@ -8,6 +8,9 @@
  *
  * Main module of the application.
  */
+
+// Very sad to place this in the global scope.
+var jsonFlickrFeed;
 angular
   .module('potatoApp', [
     'ngAnimate',
@@ -17,18 +20,32 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .service('sharedProperties', function(){
-    var obj;
+  .service('flickr-feed', ['$http', function($http) {
+    var host, href, qs;
+    host = 'https://api.flickr.com',
+    href = '/services/feeds/photos_public.gne',
+    qs = '?tags=potato&tagmode=all&format=json';
+    var feed;
+    jsonFlickrFeed = function(f) {
+      feed = f;
+      $(document).trigger('feed-loaded');
+    }
+    // TODO: Refactor this out to the shared property
+    // so that it can ensure that we only get the feed
+    // exactly once.
+    $http.jsonp(host + href + qs);
     return {
-        setObject: function(o) {
-            console.info("Object set");
-            obj = o;
-        },
-        getObject: function() {
-            return obj;
+        getObject: function(cb) {
+            if(feed) {
+                cb(feed);
+                return;
+            }
+            $(document).on('feed-loaded', function() {
+                cb(feed);
+            });
         }
     }
-  })
+}])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

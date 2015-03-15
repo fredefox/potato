@@ -9,10 +9,12 @@
  */
 angular.module('potatoApp')
   .controller('DetailCtrl',
-    ['$scope', '$routeParams', 'sharedProperties',
+    ['$scope', '$routeParams', 'flickr-feed',
       function ($scope, $routeParams, sp) {
-    console.info(sp.getObject());
-    $scope.item = sp.getObject()[$routeParams.id];
+    sp.getObject(function(feed) {
+        $scope.item = feed.items[$routeParams.id];
+        console.info(feed);
+    })
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
