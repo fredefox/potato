@@ -77,3 +77,16 @@ body {
     border-bottom: 0;
   }
 }
+.feed-item {
+    clear:both;
+    padding: .4em;
+    margin: .4em;
+    border: 1px solid grey;
+    height: 220px;
+}
+.thumb {
+  float: left;
+  padding-right: 1em;
+  height: 200px;
+  /*width: 200px;*/
+}
