@@ -90,3 +90,6 @@ body {
   height: 200px;
   /*width: 200px;*/
 }
+.code {
+  font-family: monospace;
+}

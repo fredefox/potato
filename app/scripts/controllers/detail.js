@@ -12,7 +12,7 @@ angular.module('potatoApp')
     ['$scope', '$routeParams', 'flickr-feed',
       function ($scope, $routeParams, sp) {
     sp.getObject(function(feed) {
-        $scope.item = feed.items[$routeParams.id];
+        $.extend($scope, feed.items[$routeParams.id]);
         console.info(feed);
     })
     $scope.awesomeThings = [
