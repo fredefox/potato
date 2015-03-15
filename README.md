@@ -2,7 +2,9 @@ Installation
 ============
 Dependencies:
 
-* 
+* `node`
+* `npm`
+* `bower`
 
 Download the repo, then:
 
